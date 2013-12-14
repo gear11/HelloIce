@@ -5,7 +5,23 @@
     document.addEventListener('deviceready', function () {
         navigator.splashscreen.hide();
         $(document.body).height(window.innerHeight);
+        
+            // Amazon Fire OS / Android / BlackBerry WebWorks (OS 5.0 and higher) / iOS / Tizen
+    //
+    function alertDismissed() {
+        // do something
+    }
+        /*
+
+    navigator.notification.alert(
+        'You are NOT the winner!',  // message
+        alertDismissed,         // callback
+        'Game Over',            // title
+        'Done'                  // buttonName
+    );  */
+        
     }, false);
+      
 
     app.application = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout"});
 
@@ -21,4 +37,8 @@
 
         app.application.skin(mobileSkin);
     };
+    
+    
+
+    
 })(window);

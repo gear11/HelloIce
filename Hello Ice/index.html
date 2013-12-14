@@ -11,17 +11,21 @@
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
+
     <script src="scripts/login.js"></script>
     <script src="scripts/location.js"></script>
     <script src="scripts/weather.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/eqatec.js"></script>
+    <script src="scripts/appMonitor.js"></script>
 
 </head>
 <body>
     <!--Home-->
     <div id="tabstrip-home"
         data-role="view"
-        data-title="Home">
+        data-title="Home"
+        data-show="app.logViewStart" data-hide="app.logViewEnd">
 
         <div class="view-content">
             <h1>Welcome, Andy Jenkins!</h1>
@@ -39,7 +43,8 @@
     <div id="tabstrip-login"
         data-role="view"
         data-title="Login"
-        data-model="app.loginService.viewModel">
+        data-model="app.loginService.viewModel"
+        data-show="app.logViewStart" data-hide="app.logViewEnd">
 
         <div class="view-content">
             <div class="logo"></div>
@@ -102,7 +107,8 @@
     <div id="tabstrip-weather"
         data-role="view"
         data-title="Weather"
-        data-model="app.weatherService.viewModel">
+        data-model="app.weatherService.viewModel"
+        data-show="app.logViewStart" data-hide="app.logViewEnd">
 
         <div class="weather">
             <p class="weather-title">20-Day Forecast</p>
@@ -156,5 +162,18 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        document.addEventListener('deviceready', function () {
+        try {
+    console.log("Starting monitor...");
+    window.analytics.Start();
+    document.addEventListener("unload", analytics.Stop);
+    window.addEventListener("beforeunload", analytics.Stop);
+            } catch (e) {
+                alert("Oops: "+e);
+            }
+            });
+    </script>
 </body>
 </html>
