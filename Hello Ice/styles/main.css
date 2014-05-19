@@ -25,7 +25,7 @@ body, html {
 }
 
 /* IMAGE STYLES*/
-.img {
+.mainImg {
     background-image: url(../styles/images/icenium.png);
     background-repeat: no-repeat;
     text-align: center;
@@ -53,6 +53,37 @@ body, html {
     font-size: .9em;
     -webkit-appearance: none;
 }
+
+/* WEB STYLES */
+/* Make label visible on Android
+   http://www.kendoui.com/forums/kendo-ui-mobile/tabstrip/tabstrip-text-on-android.aspx */
+.km-android .km-tabstrip .km-text
+{
+    text-indent: 0;
+    height: 3.7rem;
+    margin-top: -2.5rem;
+    padding-top: 1.8rem;
+    text-indent: 0;
+    color: #a8a8a8;
+    font-size: 1em;
+}
+/* Add custom icon:
+    http://docs.kendoui.com/getting-started/mobile/icons */
+.km-root .km-pane .km-view .km-attractions {
+    background-image: url("images/tab_icon_attraction.png");
+    background-repeat: no-repeat;
+}
+
+#iframe-container, #iframe-container iframe {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+
+#iframe-container iframe {
+    overflow: scroll;
+}
+
 
 /* MAP STYLES*/
 #no-map {
